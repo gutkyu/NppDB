@@ -1,0 +1,7 @@
+Resource/*
+test/*
+**/bin
+**/obj
+**/Release
+**/Debug
+**/x86

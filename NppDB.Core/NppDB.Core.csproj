@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1076DF45-B027-435B-B7EC-45637FFEF66C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NppDB.Core</RootNamespace>
+    <AssemblyName>NppDB.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\NppDB\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\NppDB\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBConnectManager.cs" />
+    <Compile Include="FrmDatabaseExplore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDatabaseExplore.Designer.cs">
+      <DependentUpon>FrmDatabaseExplore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOption.Designer.cs">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectDbType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectDbType.Designer.cs">
+      <DependentUpon>frmSelectDbType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSQLResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSQLResult.designer.cs">
+      <DependentUpon>FrmSQLResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotifyHandler.cs" />
+    <Compile Include="Option.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDatabaseExplore.resx">
+      <DependentUpon>FrmDatabaseExplore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOption.resx">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectDbType.resx">
+      <DependentUpon>frmSelectDbType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSQLResult.resx">
+      <DependentUpon>FrmSQLResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NppDB.Comm\NppDB.Comm.csproj">
+      <Project>{61BB668A-81C0-444D-8179-BB66CA022C14}</Project>
+      <Name>NppDB.Comm</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
