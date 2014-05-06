@@ -66,6 +66,6 @@ NppDB에서 SQL 구문을 작성하고 확인하려면 1) Database Connect Manag
 
 
 ##향후 계획
-DataTable Display과정 개선
-Database 모듈 버전 표시
-MS SQL 세션ID 표시
+*DataTable Display과정 개선
+*Database 모듈 버전 표시
+*MS SQL 세션ID 표시
