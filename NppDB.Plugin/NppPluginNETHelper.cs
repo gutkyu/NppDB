@@ -2060,6 +2060,8 @@ namespace NppDB
     public class Win32
     {
         [DllImport("user32")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, WM Msg, uint wParam, int lParam);
+        [DllImport("user32")]
         public static extern IntPtr SendMessage(IntPtr hWnd, NppMsg Msg, int wParam, NppMenuCmd lParam);
         [DllImport("user32")]
         public static extern IntPtr SendMessage(IntPtr hWnd, NppMsg Msg, int wParam, IntPtr lParam);
@@ -2108,8 +2110,76 @@ namespace NppDB
         [DllImport("user32")]
         public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
 
+        [DllImport("user32")]
+        public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint);
+
+        [DllImport("user32.dll")]
+        public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetParent(IntPtr hWnd);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool DestroyWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetDlgItem(IntPtr hDlg, int nIDDlgItem);
+               
+
+        [DllImport("user32")]
+        public static extern IntPtr SetWindowLong(IntPtr hWnd, int nIndex, Win32WndProc newProc);
+        [DllImport("user32")]
+        public static extern int CallWindowProc(IntPtr lpPrevWndFunc, IntPtr hWnd, int Msg, int wParam, int lParam);
+        // A delegate that matches Win32 WNDPROC:
+        [UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        public delegate int Win32WndProc(IntPtr hWnd, int Msg, int wParam, int lParam);
+        public const int GWL_WNDPROC = -4;
+
+
         [DllImport("kernel32")]
         public static extern void OutputDebugString(string lpOutputString);
+    }
+
+    [Flags]
+    public enum SetWindowPosFlags : uint
+    {
+        AsyncWindowPos = 0x4000,
+        DeferErase = 0x2000,
+        DrawFrame = 0x0020,
+        FrameChanged = 0x0020,
+        HideWindow = 0x0080,
+        NoActivate = 0x0010,
+        NoCopyBits = 0x0100,
+        NoMove = 0x0002,
+        NoOwnerZOrder = 0x0200,
+        NoRedraw = 0x0008,
+        NoReposition = 0x0200,
+        NoSendChanging = 0x0400,
+        NoResize = 0x0001,
+        NoZOrder = 0x0004,
+        ShowWindow = 0x0040,
+    }
+
+    public enum WM : uint
+    {
+        Move = 0x0003,
+        Size = 0x0005,
+        Moving = 0x0216,
+        EnterSizeMove = 0x0231,
+        ExitSizeMove = 0x0232,
+        Notify = 0x4E,
+        Command = 0x0111,
     }
 
     public class ClikeStringArray : IDisposable
@@ -2157,7 +2227,7 @@ namespace NppDB
             return _managedItems;
         }
 
-        public void Dispose()
+        public void Dispose()   
         {
             if (!_disposed)
             {

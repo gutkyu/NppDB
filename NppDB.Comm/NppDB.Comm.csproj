@@ -56,9 +56,14 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,14 +72,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectAttr.cs" />
-    <Compile Include="IColumnInfo.cs" />
-    <Compile Include="IDatabase.cs" />
+    <Compile Include="IIconProvider.cs" />
+    <Compile Include="NppDBCommandType.cs" />
+    <Compile Include="INppDBCommandClient.cs" />
+    <Compile Include="INppDBCommandHost.cs" />
+    <Compile Include="IRefreshable.cs" />
     <Compile Include="IDBConnect.cs" />
-    <Compile Include="IMSSQLTable.cs" />
-    <Compile Include="IMSSQLView.cs" />
-    <Compile Include="IParametaInfo.cs" />
+    <Compile Include="IMenuProvider.cs" />
     <Compile Include="ISQLExecutor.cs" />
-    <Compile Include="IStoredProcedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

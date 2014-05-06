@@ -2,27 +2,27 @@
 
 namespace NppDB
 {
-    partial class PluginBase
+    public partial class PluginBase
     {
         #region " Fields "
-        internal static NppData nppData;
-        internal static FuncItems _funcItems = new FuncItems();
+        internal  NppData nppData;
+        internal  FuncItems _funcItems = new FuncItems();
         #endregion
 
         #region " Helper "
-        internal static void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer)
+        internal void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer)
         {
             SetCommand(index, commandName, functionPointer, new ShortcutKey(), false);
         }
-        internal static void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, ShortcutKey shortcut)
+        internal void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, ShortcutKey shortcut)
         {
             SetCommand(index, commandName, functionPointer, shortcut, false);
         }
-        internal static void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, bool checkOnInit)
+        internal void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, bool checkOnInit)
         {
             SetCommand(index, commandName, functionPointer, new ShortcutKey(), checkOnInit);
         }
-        internal static void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, ShortcutKey shortcut, bool checkOnInit)
+        internal void SetCommand(int index, string commandName, NppFuncItemDelegate functionPointer, ShortcutKey shortcut, bool checkOnInit)
         {
             FuncItem funcItem = new FuncItem();
             funcItem._cmdID = index;
@@ -35,7 +35,7 @@ namespace NppDB
             _funcItems.Add(funcItem);
         }
 
-        internal static IntPtr GetCurrentScintilla()
+        internal IntPtr GetCurrentScintilla()
         {
             int curScintilla;
             Win32.SendMessage(nppData._nppHandle, NppMsg.NPPM_GETCURRENTSCINTILLA, 0, out curScintilla);

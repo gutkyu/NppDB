@@ -1,21 +1,62 @@
 # NppDB
-Notepad++ Plugin to connect a database and execute a sql query
+NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.
 
-## Pre-Installation Requirements
-  .Net Framework 4.0
+## Pre-requirements
+Notepad++ 6.5 (unicode)
+.Net Framework 4.0
+
+## Supported Databases
+MS SQL Server (test only 2008 R2), SQLite
+
+## Structure
+1. Database Connect Manager
+	register, remove, connect and close a Database Server 
+	represent the database's elements in hierarchy sturcture.
+	make a environment for executing a sql statement
+2. SQL Result
+	show a result of sql query.
+3. Document
+	place to writing a sql statement.
+	a block of sql statement must be selected before 'Execute SQL'
 
 ## Install
-	1. download the binary zip file.
-	2. extract the file to notepad++ plugin directory
+1. download a zip file containing binaries and extracts into temporary directory
+2. copy NppDB.dll and NppDB directory under notepad++ plugins directory
+
+## Quick Start Guide
+1. open 'Database Connect Manaer'.
+2. register a database-connect in 'Database Connect Manager'.
+3. expand sub nodes that are databases by double click database-connect node which appear as root node.
+4. perform a right-click on node indicating target database and select 'Open' from the node's popup menu to create new document and sql-result.
+5. write a sql statement in the document and select blocks of the statement.
+6. perform 'Plugins/NppDB/Execute SQL' from notepade++ toolbar (or F9 shortcut key)
 
 ## Usage
-	1. click menu 'Plugins/NppDB/Database Connect Manager' or toolbar button 
-	2. register the database
-	3. click the database node and make a connect to the database
-	4. select target table node and then click mouse right button on it
-	5. if click menu 'Open', Window 'SQL Result' appear
-	6. select range of sql query in the document and click menu 'Plugins/NppDB/Execute SQL'
-	
-## Status
-  tested only MS SQL 2008 
 
+### Open Database Connect Manager
+select 'NppDB/Database Connect Manager' from Notepad++ plugin menu
+or
+click icon from a toolbar 
+
+### Register new database server
+1. click icon from  Database-Connect-Manager's toolbar
+2. select one of database types
+
+3. Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.
+
+### Getting into detail about sub elements
+perform double-click on the node to expands sub elements.
+because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements 
+
+two method to make a environment to execute sql statements
+*first, select 'Open' from database node's popup
+
+*second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup
+
+### Executing sql statement
+1. check that current document can execute sql statement. (ok if with sql-result )
+2. write a sql statement and then select a block of the statement.
+3. perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.
+
+## License
+MIT

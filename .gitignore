@@ -1,5 +1,5 @@
-Resource/*
-test/*
+Resource/
+test/
 **/bin
 **/obj
 **/Release
