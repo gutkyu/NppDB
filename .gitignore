@@ -1,7 +1,9 @@
 Resource/
 test/
-**/bin
-**/obj
-**/Release
-**/Debug
-**/x86
+**/bin/
+**/obj/
+**/Release/
+**/Debug/
+**/x86/
+*.suo
+*.sdf
