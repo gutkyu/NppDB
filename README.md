@@ -2,8 +2,8 @@
 NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.
 
 ## Pre-requirements
-Notepad++ 6.5 (unicode)
-.Net Framework 4.0
+* Notepad++ 6.5 (unicode)
+* .Net Framework 4.0
 
 ## Supported Databases
 MS SQL Server (test only 2008 R2), SQLite
@@ -20,7 +20,7 @@ MS SQL Server (test only 2008 R2), SQLite
 	a block of sql statement must be selected before 'Execute SQL'
 
 ## Install
-1. download a zip file containing binaries and extracts into temporary directory
+1. download a (zip file)[https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip] containing binaries and extracts into temporary directory
 2. copy NppDB.dll and NppDB directory under notepad++ plugins directory
 
 ## Quick Start Guide
@@ -49,9 +49,9 @@ perform double-click on the node to expands sub elements.
 because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements 
 
 two method to make a environment to execute sql statements
-*first, select 'Open' from database node's popup
+* first, select 'Open' from database node's popup
 
-*second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup
+* second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup
 
 ### Executing sql statement
 1. check that current document can execute sql statement. (ok if with sql-result )
