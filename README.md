@@ -20,7 +20,7 @@ MS SQL Server (test only 2008 R2), SQLite
 	a block of sql statement must be selected before 'Execute SQL'
 
 ## Install
-1. download a (zip file)[https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip] containing binaries and extracts into temporary directory
+1. download a [zip file containing binaries](https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip) and extracts into temporary directory
 2. copy NppDB.dll and NppDB directory under notepad++ plugins directory
 
 ## Quick Start Guide
