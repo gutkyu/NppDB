@@ -2,8 +2,8 @@
 NppDB는 다양한 Database에 접속해서 SQL 구문를 실행하고 그 결과를 확인할 수 있는 Notepad++ Plugin이다.
 
 ## 요구사항
-.Net Framwork 4.0 설치 필요
-Notepad++ 6.5 (unicode)
+* .Net Framwork 4.0 설치 필요
+* Notepad++ 6.5 (unicode)
 
 ## 지원가능한 Databases
 MS SQL Server ( 2008 R2에서 작동확인), SQLite
