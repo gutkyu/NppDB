@@ -1,4 +1,4 @@
-﻿# NppDB
+# NppDB
 NppDB는 다양한 Database에 접속해서 SQL 구문를 실행하고 그 결과를 확인할 수 있는 Notepad++ Plugin이다.
 
 ## 요구사항
@@ -47,17 +47,15 @@ Notepad++에서 메뉴를 선택하거나 Toolbar에서 icon 선택
 그 Node의 하위 요소 역시 또 다른 계층 구조를 이루고 있기 때문에 같은 방법으로 그 구조를 확인할 수 있다.
 
 ### SQL 구문 실행 환경 만들기
-NppDB에서 SQL 구문을 작성하고 확인하려면 1) Database Connect Manager에서 해당 Database연결을 생성하고  2) SQL 구문 작성을 위한 새로운 Document를 추가해야 하며 3)그 실행 결과를 보여주는 SQL Result 영역을 표시해야한다.
-이 모든 과정은 각각 별도로 실행하지 않고 아래에 소개하는 메뉴를 사용해서 한번에 실행한다.
+NppDB에서 SQL 구문을 작성하고 확인하려면 1) Database Connect Manager에서 해당 Database연결을 생성하고  2) SQL 구문 작성을 위한 새로운 Document를 추가한 다음 3)그 실행 결과를 보여주는 SQL Result 영역을  Notepadd++에 표시해야한다.
+NppDB는 번거롭게 모든 과정은 각각 별도로 실행하지 않고 아래에 소개하는 두가지 방법으로 간단하게 실행 환경을 제공한다.
 
 1. Database Node의 팝업 메뉴에서 ‘Open’ 선택한다.
 	이 메뉴는 SQL 구문을 작성할 수 있는 빈 문서와 SQL Result 영역을 생성한다.
 	
 2. Table Node의 팝업 메뉴에서 ‘Select … Top 100’나 ‘Select … Limit 100’처럼 SQL 구문의 등록한 메뉴를 실행한다.
 	이 메뉴는 Table과 연관된 SQL 구문을 새로 생성한 문서에 보낸 다음 그 구문의 실행 결과를 SQL Result에 보이도록 일련의 과정을 실행한다.
-	
-
-선택한 후 오른쪽 마우스 버튼을 누른 다음 나타난 팝업창에서 Open 메뉴를 선택하거나 그 Node를 더블 클릭한다.
+	선택한 후 오른쪽 마우스 버튼을 누른 다음 나타난 팝업창에서 Open 메뉴를 선택하거나 그 Node를 더블 클릭한다.
 
 ###SQL 구문 실행
 1. 작성할 문서가 실행 환경에 있는지 확인한다.(sql result가 아래에 있는지 확인)
