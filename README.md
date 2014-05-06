@@ -10,14 +10,14 @@ MS SQL Server (test only 2008 R2), SQLite
 
 ## Structure
 1. Database Connect Manager
-	register, remove, connect and close a Database Server 
-	represent the database's elements in hierarchy sturcture.
-	make a environment for executing a sql statement
+	* register, remove, connect and close a Database Server 
+	* represent the database's elements in hierarchy sturcture.
+	* make a environment for executing a sql statement
 2. SQL Result
-	show a result of sql query.
+	* show a result of sql query.
 3. Document
-	place to writing a sql statement.
-	a block of sql statement must be selected before 'Execute SQL'
+	* place to writing a sql statement.
+	* a block of sql statement must be selected before 'Execute SQL'
 
 ## Install
 1. download a [zip file containing binaries](https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip) and extracts into temporary directory
