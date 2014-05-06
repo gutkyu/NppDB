@@ -10,14 +10,14 @@ MS SQL Server ( 2008 R2에서 작동확인), SQLite
 
 ## 구성
 1. Database Connect Manager 
-	Database Server 등록, 삭제, 연결, 끊기
-	Database 하위 구성요소들의 관계를 계층적으로 보여준다.
-	SQL 구문 실행환경을 만든다.
+	* atabase Server 등록, 삭제, 연결, 끊기
+	* Database 하위 구성요소들의 관계를 계층적으로 보여준다.
+	* SQL 구문 실행환경을 만든다.
 2. SQL Result
-	SQL Query의 실행 결과를 보여준다.
+	* SQL Query의 실행 결과를 보여준다.
 3. Document
-	SQL 구문을 작성하는 공간
-	실행할 SQL구문은 블럭으로 선택해야 한다. 
+	* SQL 구문을 작성하는 공간
+	* 실행할 SQL구문은 블럭으로 선택해야 한다. 
 
 ## 설치
 1. Binary File들의 zip파일을 임시 디렉토리에 다운로드하고 압축을 해제한다.
