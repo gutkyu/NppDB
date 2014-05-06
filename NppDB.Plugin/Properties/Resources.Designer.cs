@@ -66,12 +66,5 @@ namespace NppDB.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        internal static System.Drawing.Bitmap DBPPResult16 {
-            get {
-                object obj = ResourceManager.GetObject("DBPPResult16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

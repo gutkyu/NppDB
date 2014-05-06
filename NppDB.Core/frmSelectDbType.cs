@@ -20,9 +20,8 @@ namespace NppDB.Core
 
         private void frmSelectDbType_Load(object sender, EventArgs e)
         {
-
             cbxDbTypes.Items.AddRange(DBServerManager.Instance.GetDatabaseTypes().ToArray());
-            if (cbxDbTypes.Items.Count > 0) cbxDbTypes.SelectedIndex = 0;
+            if(cbxDbTypes.Items.Count> 0) cbxDbTypes.SelectedIndex = 0;
         }
 
         public DatabaseType SelectedDatabaseType

@@ -14,7 +14,7 @@ using NppDB.Comm;
 
 namespace NppDB.Core
 {
-    public class DBServerManager
+    public class DBServerManager 
     {
         private List<IDBConnect> _dbConnects = new List<IDBConnect>();
 
@@ -25,96 +25,19 @@ namespace NppDB.Core
         
         public void Register(IDBConnect dbConnect)
         {
-            if (_dbConnects.Any(x => x.Name.Equals(dbConnect.Name))) throw new ApplicationException("Connecton Name exists!");
+            if (_dbConnects.Any(x => x.Title.Equals(dbConnect.Title))) throw new ApplicationException("Connecton Name exists!");
            
             //retrieve DB list
             //retrieve Table listfor each DB 
             _dbConnects.Add(dbConnect);
         }
 
-        public void Unregister(string ConnectionName)
+        public void Unregister(IDBConnect dbConnect)
         {
-            _dbConnects.Where(x => x.Name.Equals(ConnectionName)).ToList().ForEach(x => _dbConnects.Remove(x));
-        }
-
-        //ServerName or ServerName/Database or ServerName/Database/Table etc
-        public object FindObject(string[] fullPath)
-        {
-            try
-            {
-
-                if (fullPath.Length == 0 || fullPath.Length == 3)
-                {
-                    return null;
-                }
-
-                var result0 = _dbConnects.Where(x => x.Name.Equals(fullPath[0]));
-                if (fullPath.Length == 1)
-                {
-                    return result0.Count() == 0 ? null : result0.First();
-                }
-
-                var result1 = result0.First().Databases.Where(x => x.Name.Equals(fullPath[1]));
-                if (fullPath.Length == 2)
-                {
-                    return result1.Count() == 0 ? null : result1.First();
-                }
-
-                if (fullPath[2] == "SystemTables")
-                {
-                    var result2 = result1.First().SysTables.Where(x => x.Name.Equals(fullPath[3]));
-                    if (fullPath.Length == 4)
-                    {
-                        return result2.Count() == 0 ? null : result2.First();
-                    }
-                }
-                else if (fullPath[2] == "Tables")
-                {
-                    var result2 = result1.First().Tables.Where(x => x.Name.Equals(fullPath[3]));
-                    if (fullPath.Length == 4)
-                    {
-                        return result2.Count() == 0 ? null : result2.First();
-                    }
-                }
-                else if (fullPath[2] == "Views")
-                {
-                    var result2 = result1.First().Views.Where(x => x.Name.Equals(fullPath[3]));
-                    if (fullPath.Length == 4)
-                    {
-                        return result2.Count() == 0 ? null : result2.First();
-                    }
-                }
-                else if (fullPath[2] == "StoredProcedures")
-                {
-                    var result2 = result1.First().StoredProcedures.Where(x => x.Name.Equals(fullPath[3]));
-                    if (fullPath.Length == 4)
-                    {
-                        return result2.Count() == 0 ? null : result2.First();
-                    }
-                }
-
-                
-
-                /*
-                foreach (var path in sepPath)
-                {
-                    result = _dbConnects.Where(x => x.Name.Equals(path));
-                }*/
-                return null;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        
-
-        public IDBConnect GetDBConnect(string connectName)
-        {
-            IDBConnect ret = null;
-            try { ret = _dbConnects.First(x => x.Name.Equals(connectName)); } catch { }
-            return ret;
+            _dbConnects.Remove(dbConnect);
+            List<int> removeIDs = new List<int>();
+            foreach (var result in SQLResultManager.Instance.GetSQLResults(dbConnect)) removeIDs.Add(SQLResultManager.Instance.GetID(result));
+            removeIDs.ForEach(x=> SQLResultManager.Instance.Remove(x));
         }
 
         public void Refresh()
@@ -124,6 +47,8 @@ namespace NppDB.Core
 
         public IEnumerable<IDBConnect> Connections { get { return _dbConnects; } }
 
+        
+        
         public void SaveToXml(string path)
         {
             var dir = System.IO.Path.GetDirectoryName(path);
@@ -132,12 +57,11 @@ namespace NppDB.Core
             XmlDocument xdoc = new XmlDocument();
             XmlNode xconnects = xdoc.CreateElement("connects");
             xdoc.AppendChild(xconnects);
-            StringBuilder strXmlBD = new StringBuilder();
-            System.IO.StringWriter sw = new System.IO.StringWriter(strXmlBD);
 
             foreach (var connect in _dbConnects)
             {
-                XmlSerializer serializer = new XmlSerializer(connect.GetType());
+                var sw = new StringWriter(new StringBuilder());
+                var serializer = new XmlSerializer(connect.GetType(), GetXmlOver());
                 serializer.Serialize(sw, connect);
                 sw.Flush();
                 XmlDocument xd = new XmlDocument();
@@ -145,10 +69,19 @@ namespace NppDB.Core
                 var xcnn = xdoc.ImportNode(xd.DocumentElement, true);
                 xcnn.Attributes.RemoveAll();
                 xconnects.AppendChild(xcnn);
-
             }
             xdoc.Save(path);
+        }
 
+        //except TreeNode's Property
+        private XmlAttributeOverrides GetXmlOver()
+        {
+            XmlAttributeOverrides xmlOver = new XmlAttributeOverrides();
+            foreach (var prop in typeof(System.Windows.Forms.TreeNode).GetProperties())
+            {
+                xmlOver.Add(typeof(System.Windows.Forms.TreeNode), prop.Name, new XmlAttributes { XmlIgnore = true });
+            }
+            return xmlOver;
         }
 
         public void LoadFromXml(string path)
@@ -158,24 +91,37 @@ namespace NppDB.Core
 
             XmlDocument xdoc = new XmlDocument();
             xdoc.Load(path);
-
-            var conns = new List<IDBConnect>();
-            foreach(var dbTyp in _dbTypes)
+            
+            try
             {
-                foreach(XmlNode node in xdoc.SelectNodes(@"//connects/"+dbTyp.ConnectType.Name))
+                var conns = new List<IDBConnect>();
+                foreach (var dbTyp in _dbTypes)
                 {
-                    XmlSerializer serializer = new XmlSerializer(dbTyp.ConnectType);
-                    conns.Add(serializer.Deserialize(new System.IO.StringReader(node.OuterXml)) as IDBConnect);
+                    foreach (XmlNode node in xdoc.SelectNodes(@"//connects/" + dbTyp.ConnectType.Name))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(dbTyp.ConnectType, GetXmlOver());
+                        var conn = serializer.Deserialize(new System.IO.StringReader(node.OuterXml)) as IDBConnect;
+                        if (NppCommandHost != null && conn is INppDBCommandClient) ((INppDBCommandClient)conn).SetCommandHost(NppCommandHost);
+                        conns.Add(conn);
+                    }
                 }
-            }
 
-            _dbConnects.Clear();
-            _dbConnects.AddRange(conns);
+                _dbConnects.Clear();
+                _dbConnects.AddRange(conns);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.InnerException.Message + "\n" + ex.InnerException.StackTrace, (ex.InnerException != null).ToString());
+            }
         }
+
+        public INppDBCommandHost NppCommandHost { get; set; }
 
         public IDBConnect CreateConnect(DatabaseType databaseType)
         {
-            return databaseType.ConnectType.Assembly.CreateInstance(databaseType.ConnectType.FullName) as IDBConnect;
+            var connect = databaseType.ConnectType.Assembly.CreateInstance(databaseType.ConnectType.FullName) as IDBConnect;
+            if (NppCommandHost != null && connect is INppDBCommandClient) ((INppDBCommandClient)connect).SetCommandHost(NppCommandHost);
+            return connect;
         }
 
         public IEnumerable<DatabaseType> GetDatabaseTypes()
@@ -186,8 +132,7 @@ namespace NppDB.Core
         private List<DatabaseType> _dbTypes = new List<DatabaseType>();
         private void LoadConnectTypes()
         {
-            string dir = Path.GetDirectoryName(new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-            //System.Windows.Forms.MessageBox.Show(dir);
+            string dir = Path.GetDirectoryName(Uri.UnescapeDataString(new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath));
             foreach( var filePath in Directory.GetFiles(dir,"*.dll"))
             {
 
@@ -228,7 +173,7 @@ namespace NppDB.Core
             }
         }
 
-        
+
     }
 
     public class DatabaseType

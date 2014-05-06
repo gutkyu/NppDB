@@ -125,11 +125,9 @@
             this.trvDBList.PathSeparator = "!>!";
             this.trvDBList.Size = new System.Drawing.Size(484, 514);
             this.trvDBList.TabIndex = 1;
-            this.trvDBList.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.trvDBList_AfterCollapse);
-            this.trvDBList.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.trvDBList_AfterExpand);
             this.trvDBList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvDBList_AfterSelect);
             this.trvDBList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvDBList_NodeMouseClick);
-            this.trvDBList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.trvDBList_MouseClick);
+            this.trvDBList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvDBList_NodeMouseDoubleClick);
             // 
             // FrmDatabaseExplore
             // 
@@ -140,7 +138,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmDatabaseExplore";
             this.Text = "FrmDatabaseExplore";
-            this.Load += new System.EventHandler(this.FrmDatabaseExplore_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
