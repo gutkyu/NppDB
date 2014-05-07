@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1>NppDB</h1>
-        <p>Notepad++ Plugin to connect a database and execute a sql query</p>
+        <p>Notepad++에서 SQL구문 실행을 지원하기 위한 Plugin</p>
 
         <p class="view"><a href="https://github.com/gutkyu/NppDB">View the Project on GitHub <small>gutkyu/NppDB</small></a></p>
 
@@ -28,99 +28,101 @@
         </ul>
       </header>
       <section>
-        <p>NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.</p>
+        <p>NppDB는 다양한 Database에 접속해서 SQL 구문를 실행하고 그 결과를 확인할 수 있는 Notepad++ Plugin입니다.</p>
 
 <h2>
-<a name="pre-requirements" class="anchor" href="#pre-requirements"><span class="octicon octicon-link"></span></a>Pre-requirements</h2>
+<a name="%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD" class="anchor" href="#%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD"><span class="octicon octicon-link"></span></a>요구사항</h2>
 
 <ul>
+<li>.Net Framwork 4.0 설치 필요</li>
 <li>Notepad++ 6.5 (unicode)</li>
-<li>.Net Framework 4.0</li>
 </ul><h2>
-<a name="supported-databases" class="anchor" href="#supported-databases"><span class="octicon octicon-link"></span></a>Supported Databases</h2>
+<a name="%EC%A7%80%EC%9B%90%EA%B0%80%EB%8A%A5%ED%95%9C-databases" class="anchor" href="#%EC%A7%80%EC%9B%90%EA%B0%80%EB%8A%A5%ED%95%9C-databases"><span class="octicon octicon-link"></span></a>지원가능한 Databases</h2>
 
-<p>MS SQL Server (test only 2008 R2), SQLite</p>
+<p>MS SQL Server ( 2008 R2에서 작동확인), SQLite</p>
 
 <h2>
-<a name="structure" class="anchor" href="#structure"><span class="octicon octicon-link"></span></a>Structure</h2>
+<a name="%EA%B5%AC%EC%84%B1" class="anchor" href="#%EA%B5%AC%EC%84%B1"><span class="octicon octicon-link"></span></a>구성</h2>
 
 <ol>
-<li>Database Connect Manager
+<li>Database Connect Manager 
 
 <ul>
-<li>register, remove, connect and close a Database Server </li>
-<li>represent the database's elements in hierarchy sturcture.</li>
-<li>make a environment for executing a sql statement</li>
+<li>atabase Server 등록, 삭제, 연결, 끊기</li>
+<li>Database 하위 구성요소들의 관계를 계층적으로 보여준다.</li>
+<li>SQL 구문 실행환경을 만든다.</li>
 </ul>
 </li>
 <li>SQL Result
 
 <ul>
-<li>show a result of sql query.</li>
+<li>SQL Query의 실행 결과를 보여준다.</li>
 </ul>
 </li>
 <li>Document
 
 <ul>
-<li>place to writing a sql statement.</li>
-<li>a block of sql statement must be selected before 'Execute SQL'</li>
+<li>SQL 구문을 작성하는 공간</li>
+<li>실행할 SQL구문은 블럭으로 선택해야 한다. </li>
 </ul>
 </li>
 </ol><h2>
-<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+<a name="%EC%84%A4%EC%B9%98" class="anchor" href="#%EC%84%A4%EC%B9%98"><span class="octicon octicon-link"></span></a>설치</h2>
 
-<ol>
-<li>download a <a href="https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip">zip file containing binaries</a> and extracts into temporary directory</li>
-<li>copy NppDB.dll and NppDB directory under notepad++ plugins directory</li>
-</ol><h2>
-<a name="quick-start-guide" class="anchor" href="#quick-start-guide"><span class="octicon octicon-link"></span></a>Quick Start Guide</h2>
+<pre><code>1. Binary File들의 zip파일을 임시 디렉토리에 다운로드하고 압축을 해제한다.
+2. NppDB.dll 파일과 nppdb 디렉토리를 Notepad++의 plugins 디렉토리 아래로 복사한다.
+</code></pre>
 
-<ol>
-<li>open 'Database Connect Manaer'.</li>
-<li>register a database-connect in 'Database Connect Manager'.</li>
-<li>expand sub nodes that are databases by double click database-connect node which appear as root node.</li>
-<li>perform a right-click on node indicating target database and select 'Open' from the node's popup menu to create new document and sql-result.</li>
-<li>write a sql statement in the document and select blocks of the statement.</li>
-<li>perform 'Plugins/NppDB/Execute SQL' from notepade++ toolbar (or F9 shortcut key)</li>
-</ol><h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<h2>
+<a name="database%EC%97%90-sql-%EA%B5%AC%EB%AC%B8%EC%9D%84-%EB%B3%B4%EB%82%B4%EA%B3%A0-%EA%B2%B0%EA%B3%BC%EB%A5%BC-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" class="anchor" href="#database%EC%97%90-sql-%EA%B5%AC%EB%AC%B8%EC%9D%84-%EB%B3%B4%EB%82%B4%EA%B3%A0-%EA%B2%B0%EA%B3%BC%EB%A5%BC-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><span class="octicon octicon-link"></span></a>Database에 SQL 구문을 보내고 결과를 확인하는 방법</h2>
 
-<h3>
-<a name="open-database-connect-manager" class="anchor" href="#open-database-connect-manager"><span class="octicon octicon-link"></span></a>Open Database Connect Manager</h3>
+<pre><code>1. Database Connect Manager에서 Database 연결한다.
+2. 최상위에 위치한 Database Connect Node를 Double Click해서 하위 Database Node들을 확장한다.
+3. SQL Query의 대상 Database Node를 선택한 후 오른쪽 버튼을 눌러서 불러낸 팝업창에서 ‘Open’ 메뉴을 선택하면 새로운 문서와 SQL Result가 생성된다.
+4. 문서안에 SQL Query를 작성한다.
+5. 그 sql 구문을 블럭으로 선택한다.
+6. ‘Plugins/NppDB/Execute SQL’을 실행한다. (단축키 F9)
+</code></pre>
 
-<p>select 'NppDB/Database Connect Manager' from Notepad++ plugin menu
-or
-click icon from a toolbar </p>
+<h2>
+<a name="%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95" class="anchor" href="#%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95"><span class="octicon octicon-link"></span></a>사용 방법</h2>
 
-<h3>
-<a name="register-new-database-server" class="anchor" href="#register-new-database-server"><span class="octicon octicon-link"></span></a>Register new database server</h3>
+<p>### Database Connect Manager 열기
+    Notepad++에서 메뉴를 선택하거나 Toolbar에서 icon 선택한다.</p>
 
-<ol>
-<li>click icon from  Database-Connect-Manager's toolbar</li>
-<li><p>select one of database types</p></li>
-<li><p>Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.</p></li>
-</ol><h3>
-<a name="getting-into-detail-about-sub-elements" class="anchor" href="#getting-into-detail-about-sub-elements"><span class="octicon octicon-link"></span></a>Getting into detail about sub elements</h3>
+<p>### 새로운 Database 서버 등록
+    1. Database Connect Manager의 Toolbar에서 icon 누른다.
+    2. 연결할 Database를 선택한다.
+    3. 선택한 Database에 적합한 연결과정을 거치면 새로운 Database Connect Node가 등록된다.
+    참고) 각 Database의 모듈별로 서로 다른 연결과정을 제공한다. </p>
 
-<p>perform double-click on the node to expands sub elements.
-because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements </p>
+<p>### 하위 요소 확인
+    하위 요소의 상세 내용을 확인하려면 그 요소에 해당하는 Node를 선택한 다음 더블 클릭한다.
+    그 Node의 하위 요소 역시 또 다른 계층 구조를 이루고 있기 때문에 같은 방법으로 그 구조를 확인할 수 있다.</p>
 
-<p>two method to make a environment to execute sql statements</p>
+<p>### SQL 구문 실행 환경 만들기
+    NppDB에서 SQL 구문을 작성하고 확인하려면 1) Database Connect Manager에서 해당 Database연결을 생성하고  2) SQL 구문 작성을 위한 새로운 Document를 추가한 다음 3)그 실행 결과를 보여주는 SQL Result 영역을  Notepadd++에 표시해야한다.
+    NppDB는 번거롭게 모든 과정은 각각 별도로 실행하지 않고 아래에 소개하는 두가지 방법으로 간단하게 실행 환경을 제공한다.</p>
 
-<ul>
-<li><p>first, select 'Open' from database node's popup</p></li>
-<li><p>second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup</p></li>
-</ul><h3>
-<a name="executing-sql-statement" class="anchor" href="#executing-sql-statement"><span class="octicon octicon-link"></span></a>Executing sql statement</h3>
+<pre><code>1. Database Node의 팝업 메뉴에서 ‘Open’ 선택한다.
+    이 메뉴는 SQL 구문을 작성할 수 있는 빈 문서와 SQL Result 영역을 생성한다.
 
-<ol>
-<li>check that current document can execute sql statement. (ok if with sql-result )</li>
-<li>write a sql statement and then select a block of the statement.</li>
-<li>perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.</li>
-</ol><h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+2. Table Node의 팝업 메뉴에서 ‘Select … Top 100’나 ‘Select … Limit 100’와 같은 SQL Query 단축 메뉴를 실행한다.
+    선택한 Table과 SQL 구문을 새로 만든 문서에 보낸 다음 그 실행 결과를 SQL Result에 출력한다.
 
-<p>MIT</p>
+###SQL 구문 실행
+1. 선택한 Notepad++ 문서가 SQL 구문 실행 환경에 있는지 확인한다.(sql result가 아래에 있으면 OK)
+2. 문서 안에 SQL 구문을 작성하고 그 구문을 블럭으로 설정한다. 
+3. Execute SQL (F9)를 실행하면 선택한 sql 구문의 결과가 Document 아래에 있는 SQL Result에 나타난다.
+</code></pre>
+
+<h2>
+<a name="%ED%96%A5%ED%9B%84-%EA%B3%84%ED%9A%8D" class="anchor" href="#%ED%96%A5%ED%9B%84-%EA%B3%84%ED%9A%8D"><span class="octicon octicon-link"></span></a>향후 계획</h2>
+
+<pre><code>* DataTable Display과정 개선
+* Database 모듈 버전 표시
+* MS SQL 세션ID 표시
+</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gutkyu">gutkyu</a></p>
