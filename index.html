@@ -1,34 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>NppDB by gutkyu</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="NppDB : " />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>NppDB</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>NppDB</h1>
-        <p></p>
 
-        <p class="view"><a href="https://github.com/gutkyu/NppDB">View the Project on GitHub <small>gutkyu/NppDB</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/gutkyu/NppDB">View on GitHub</a>
 
+          <h1 id="project_title">NppDB</h1>
+          <h2 id="project_tagline"></h2>
 
-        <ul>
-          <li><a href="https://github.com/gutkyu/NppDB/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/gutkyu/NppDB/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/gutkyu/NppDB">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.</p>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/gutkyu/NppDB/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/gutkyu/NppDB/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="nppdb" class="anchor" href="#nppdb"><span class="octicon octicon-link"></span></a>NppDB</h1>
+
+<p>NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.</p>
 
 <h2>
 <a name="pre-requirements" class="anchor" href="#pre-requirements"><span class="octicon octicon-link"></span></a>Pre-requirements</h2>
@@ -43,6 +49,8 @@
 
 <h2>
 <a name="structure" class="anchor" href="#structure"><span class="octicon octicon-link"></span></a>Structure</h2>
+
+<p><img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_All_n.png" alt="structure image"></p>
 
 <ol>
 <li>Database Connect Manager
@@ -71,7 +79,11 @@
 
 <ol>
 <li>download a <a href="https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip">zip file containing binaries</a> and extracts into temporary directory</li>
-<li>copy NppDB.dll and NppDB directory under notepad++ plugins directory</li>
+<li>
+<p>copy NppDB.dll and NppDB directory under notepad++ plugins directory</p>
+
+<p><img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Plugin_Dir.png" alt="plugins directory"></p>
+</li>
 </ol><h2>
 <a name="quick-start-guide" class="anchor" href="#quick-start-guide"><span class="octicon octicon-link"></span></a>Quick Start Guide</h2>
 
@@ -90,15 +102,19 @@
 
 <p>select 'NppDB/Database Connect Manager' from Notepad++ plugin menu
    or
-   click icon from a toolbar </p>
+   click icon <img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/DBPPManage16.png" alt="Database Connect Manager Icon"> from a toolbar </p>
 
 <h3>
 <a name="register-new-database-server" class="anchor" href="#register-new-database-server"><span class="octicon octicon-link"></span></a>Register new database server</h3>
 
 <ol>
-<li>click icon from  Database-Connect-Manager's toolbar</li>
+<li>click icon <img src="https://raw.githubusercontent.com/gutkyu/NppDB/master/NppDB.Core/Resources/add16.png" alt="Regiser Icon"> from  Database-Connect-Manager's toolbar</li>
 <li>select one of database types</li>
-<li>Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.</li>
+<li>
+<p>Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.</p>
+
+<p><img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Sel_DBType.png" alt="Select Database Type"></p>
+</li>
 </ol><h3>
 <a name="getting-into-detail-about-sub-elements" class="anchor" href="#getting-into-detail-about-sub-elements"><span class="octicon octicon-link"></span></a>Getting into detail about sub elements</h3>
 
@@ -109,25 +125,38 @@
 
 <ul>
 <li><p>first, select 'Open' from database node's popup</p></li>
-<li><p>second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup</p></li>
+<li>
+<p>second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup</p>
+
+<p><img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Node_SQL.png" alt="SQL Linked Database Node"></p>
+</li>
 </ul><h3>
 <a name="executing-sql-statement" class="anchor" href="#executing-sql-statement"><span class="octicon octicon-link"></span></a>Executing sql statement</h3>
 
 <ol>
 <li>check that current document can execute sql statement. (ok if with sql-result )</li>
-<li>write a sql statement and then select a block of the statement.</li>
-<li>perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.</li>
+<li>
+<p>write a sql statement and then select a block of the statement.</p>
+
+<p><img src="https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_SQL_Block.png" alt="Select Blocks"></p>
+</li>
+<li><p>perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.</p></li>
 </ol><h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>MIT</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/gutkyu">gutkyu</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">NppDB maintained by <a href="https://github.com/gutkyu">gutkyu</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
