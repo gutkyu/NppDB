@@ -32,8 +32,7 @@ MS SQL Server (test only 2008 R2), SQLite
 6. perform 'Plugins/NppDB/Execute SQL' from notepade++ toolbar (or F9 shortcut key)
 
 ## Usage
-
-### Open Database Connect Manager
+   ### Open Database Connect Manager
 select 'NppDB/Database Connect Manager' from Notepad++ plugin menu
 or
 click icon from a toolbar 
@@ -41,16 +40,13 @@ click icon from a toolbar
 ### Register new database server
 1. click icon from  Database-Connect-Manager's toolbar
 2. select one of database types
-
 3. Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.
 
 ### Getting into detail about sub elements
 perform double-click on the node to expands sub elements.
-because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements 
-
+because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements. 
 two method to make a environment to execute sql statements
 * first, select 'Open' from database node's popup
-
 * second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup
 
 ### Executing sql statement
