@@ -9,19 +9,22 @@
    MS SQL Server (test only 2008 R2), SQLite
 
 ## Structure
+![structure image](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_All_n.png)
    1. Database Connect Manager
-	* register, remove, connect and close a Database Server 
-	* represent the database's elements in hierarchy sturcture.
-	* make a environment for executing a sql statement
+      * register, remove, connect and close a Database Server 
+      * represent the database's elements in hierarchy sturcture.
+      * make a environment for executing a sql statement
    2. SQL Result
-	* show a result of sql query.
+      * show a result of sql query.
    3. Document
-	* place to writing a sql statement.
-	* a block of sql statement must be selected before 'Execute SQL'
-
+      * place to writing a sql statement.
+      * a block of sql statement must be selected before 'Execute SQL'
+  
 ## Install
    1. download a [zip file containing binaries](https://github.com/gutkyu/NppDB/releases/download/v2.0/NppDBv2.0.zip) and extracts into temporary directory
    2. copy NppDB.dll and NppDB directory under notepad++ plugins directory
+
+      ![plugins directory](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Plugin_Dir.png)
 
 ## Quick Start Guide
    1. open 'Database Connect Manaer'.
@@ -35,13 +38,15 @@
 ### Open Database Connect Manager
    select 'NppDB/Database Connect Manager' from Notepad++ plugin menu
    or
-   click icon from a toolbar 
+   click icon ![Database Connect Manager Icon](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/DBPPManage16.png) from a toolbar 
 
 ### Register new database server
-   1. click icon from  Database-Connect-Manager's toolbar
+   1. click icon ![Regiser Icon](https://raw.githubusercontent.com/gutkyu/NppDB/master/NppDB.Core/Resources/add16.png) from  Database-Connect-Manager's toolbar
    2. select one of database types
    3. Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.
 
+	![Select Database Type](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Sel_DBType.png)
+	
 ### Getting into detail about sub elements
    perform double-click on the node to expands sub elements.
    because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements 
@@ -50,11 +55,16 @@
    * first, select 'Open' from database node's popup
 
    * second, select prepared sql statements as 'Select … Top 100' or 'Select … Limit 100' from table node's popup
+	
+	![SQL Linked Database Node](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Node_SQL.png)
 
 ### Executing sql statement
    1. check that current document can execute sql statement. (ok if with sql-result )
    2. write a sql statement and then select a block of the statement.
-   3. perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.
 
+	![Select Blocks](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_SQL_Block.png)
+
+   3. perform menu 'Execute SQL (F9 shortcut key)' to display result of the sql statement.
+	
 ## License
 MIT
