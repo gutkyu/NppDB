@@ -5,7 +5,7 @@
    * Notepad++ 6.5 (unicode)
    * .Net Framework 4.0
 
-## Supported Databases
+## Currently Supported Databases
    MS SQL Server (test only 2008 R2), SQLite
 
 ## Structure
