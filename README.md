@@ -46,7 +46,9 @@
    3. Database Connect Node is registered in Database Connect Manager by pass authentication which selected database module produce.
 
 	![Select Database Type](https://raw.githubusercontent.com/gutkyu/NppDB/gh-pages/images/NppDB_Sel_DBType.png)
-	
+   4. connect to database server
+   	* [MS SQL Server](https://github.com/gutkyu/NppDB.MSSQL) 
+      
 ### Getting into detail about sub elements
    perform double-click on the node to expands sub elements.
    because all of connect database manager's nodes are represented in hierarchy, can also use this way for other sub elements 
