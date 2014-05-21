@@ -1,7 +1,7 @@
 # NppDB
    NppDB is a Notepad++ Plugin for supporting that connect to different type databases, execute sql statements and show the result.
 
-## Pre-requirements
+## Prerequisites
    * Notepad++ 6.5 (unicode)
    * .Net Framework 4.0
 
